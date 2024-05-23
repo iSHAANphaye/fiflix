@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie and TV Series Search</title>
+    <style>
+        .column {
+            float: left;
+            width: 45%;
+            margin: 2.5%;
+        }
+        .movie, .series {
+            margin-bottom: 20px;
+        }
+        .movie img, .series img {
+            max-width: 200px;
+            display: block;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie and TV Series Search</h1>
+    <form method="post">
+        <label for="search_terms">Enter search terms (comma-separated):</label><br>
+        <input type="text" id="search_terms" name="search_terms"><br><br>
+        <input type="submit" value="Search">
+    </form>
+
+    {% if movie_responses or series_responses %}
+        <h2>Search Results:</h2>
+        <div class="clearfix">
+            <div class="column">
+                <h3>Movies</h3>
+                {% for index, movies in enumerate(movie_responses) %}
+                    <h4>Search Term: "{{ search_terms[index] }}"</h4>
+                    <ul>
+                        {% for movie in movies %}
+                            <li class="movie">
+                                {% if movie.i %}
+                                    <a href="https://vidsrc.to/embed/movie/{{ movie.id }}" target="_blank">
+                                        <img src="{{ movie.i.imageUrl }}" alt="{{ movie.l }}">
+                                    </a>
+                                {% endif %}
+                                <strong>TITLE:</strong> {{ movie.l }}<br>
+                                <strong>MOVIE ID:</strong> {{ movie.id }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            <div class="column">
+                <h3>TV Series</h3>
+                {% for index, series_list in enumerate(series_responses) %}
+                    <h4>Search Term: "{{ search_terms[index] }}"</h4>
+                    <ul>
+                        {% for series in series_list %}
+                            <li class="series">
+                                {% if series.i %}
+                                    <a href="https://vidsrc.to/embed/tv/{{ series.id }}" target="_blank">
+                                        <img src="{{ series.i.imageUrl }}" alt="{{ series.l }}">
+                                    </a>
+                                {% endif %}
+                                <strong>TITLE:</strong> {{ series.l }}<br>
+                                <strong>SERIES ID:</strong> {{ series.id }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,26 @@
+MOVIE ->
+{'i': {
+    'height': 1929, 
+    'imageUrl': 'https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_.jpg', 
+    'width': 1299}, 
+'id': 'tt9362722', 
+'l': 'Spider-Man: Across the Spider-Verse', 
+'q': 'feature', 
+'qid': 'movie', 
+'rank': 447, 
+'s': 'Shameik Moore, Hailee Steinfeld', 
+'y': 2023}
+
+SERIES ->
+{'d': [{'i': {
+    'height': 3000, 
+    'imageUrl': 'https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_.jpg', 
+    'width': 2000}, 
+'id': 'tt0903747', 
+'l': 'Breaking Bad', 
+'q': 'TV series', 
+'qid': 'tvSeries', 
+'rank': 52, 
+'s': 'Bryan Cranston, Aaron Paul', 
+'y': 2008, 
+'yr': '2008-2013'}
